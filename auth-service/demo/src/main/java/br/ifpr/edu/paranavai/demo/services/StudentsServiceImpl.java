@@ -44,4 +44,28 @@ public class StudentsServiceImpl implements StudentsService {
 
         return studentDTOList;
     }
+
+    @Override
+    public StudentDTO getLoginStudent(String ra, StudentDTO student) {
+        StudentDTO studentDTO = new StudentDTO();
+        StudentEntity studentEntity = new StudentEntity();
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            studentEntity = studentsRepository.findByRa(ra);
+
+            studentDTO = objectMapper.convertValue(studentEntity, new TypeReference<StudentDTO>() { });
+
+            if(studentDTO != null && studentDTO.getRa().equals(student.getRa())) {
+
+            }
+
+
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return studentDTO;
+    }
+
+
 }

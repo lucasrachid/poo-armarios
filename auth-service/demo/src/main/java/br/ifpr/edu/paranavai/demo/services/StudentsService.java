@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface StudentsService {
     List<StudentDTO> getAllStudents();
+
+    StudentDTO getLoginStudent(String ra, StudentDTO studentDTO);
 }
